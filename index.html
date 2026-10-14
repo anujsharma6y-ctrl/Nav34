@@ -573,7 +573,7 @@
       constructor() { this.reset(); }
       reset() {
         this.x = Math.random() * w;
-        this.y = -0.3;
+        this.y = Math.random() * h;
         this.radius = 0.8 + Math.random() * 2.2;
         this.alpha = 0.2 + Math.random() * 0.8;
         this.speedY = -0.3 - Math.random() * 0.8;
@@ -696,7 +696,7 @@
     }
 
     /* =========================================================================
-       4. व्यवस्थित निर्बाध चरण (प्रश्न व चयनित चरण हटाए गए)
+       4. व्यवस्थित निर्बाध 8 चरण (सभी प्रश्न व अवांछित चरण हटा दिए गए हैं)
        ========================================================================= */
     function renderStage(stage) {
       container.innerHTML = '';
@@ -706,7 +706,7 @@
         /* ---------------- चरण 1: दिव्य प्रवेश ---------------- */
         case 1:
           container.innerHTML = `
-            <div class="anuj-badge fade-in">॥ गोविन्द शर्मा द्वारा प्रस्तुत पावन नवरात्रि आराधना ॥</div>
+            <div class="anuj-badge fade-in">॥ गोविंद शर्मा द्वारा प्रस्तुत पावन नवरात्रि आराधना ॥</div>
             <div class="mata-darshan-frame fade-in">
               <img src="${IMG_SANCTUM_NIGHT}" alt="माँ शेरावाली पावन धाम" />
             </div>
@@ -735,7 +735,8 @@
             showBlessing("माता रानी आपके जीवन से हर अंधकार दूर कर ज्ञान और सुख की ज्योति जलाए रखें।", () => renderStage(3));
           };
           break;
-/* ---------------- चरण 3: पुष्प अर्पण ---------------- */
+
+        /* ---------------- चरण 3: पुष्प अर्पण ---------------- */
         case 3:
           container.innerHTML = `
             <h1 class="devotional-title fade-in">पुष्प अर्पण</h1>
@@ -764,8 +765,6 @@
             });
           });
           break;
-      
-        
 
         /* ---------------- चरण 4: मंदिर की घंटियाँ ---------------- */
         case 4:
@@ -847,7 +846,7 @@
           };
           break;
 
-        /* ---------------- चरण 7: दिव्य दर्शन और आरती ---------------- */
+        /* ---------------- चरण 7: महा आरती (आरती गीत स्वतः प्रारंभ व दीपक परिक्रमा) ---------------- */
         case 7:
           sound.switchToAartiTrack();
           container.innerHTML = `
@@ -861,6 +860,7 @@
               </div>
               <div id="moving-diya" class="revolving-diya">🪔</div>
             </div>
+
             <div style="margin-top: 15px;">
               <button id="start-aarti-btn" class="btn-divine">आरती प्रारंभ करें 🔔</button>
             </div>
@@ -890,7 +890,7 @@
           };
           break;
 
-        /* ---------------- चरण 8: अंतिम दिव्य आशीर्वाद ---------------- */
+        /* ---------------- चरण 8: अंतिम परम दिव्य दर्शन ---------------- */
         case 8:
           container.innerHTML = `
             <div class="mata-darshan-frame fade-in" style="width: min(88vmin, 460px); max-height: 38vh;">
@@ -900,7 +900,7 @@
             <h1 class="devotional-title fade-in" style="font-size: clamp(2rem, 5.2vw, 3.2rem); margin-bottom: 2px;">🌺 जय माता दी 🌺</h1>
             
             <div class="final-tribute-banner fade-in">
-              <span class="final-tribute-text"> गोविन्द शर्मा की ओर से हार्दिक शुभकामनाएँ 🌺</span>
+              <span class="final-tribute-text">🌺 गोविंद शर्मा की ओर से हार्दिक शुभकामनाएँ 🌺</span>
             </div>
 
             <p class="instruction-text fade-in" style="margin-bottom: 8px; font-weight: 600; color: #ffecc2;">
